@@ -10,15 +10,20 @@ windows:
       layout: even-vertical
       panes:
         - sleep 15; roslaunch mission_planner mission_planner.launch drone_id:=1 leader:=true
-  - follower:
+  - follower1:
       layout: even-vertical
       panes:
         - sleep 15; roslaunch mission_planner mission_planner_follower.launch drone_id:=2 leader:=false
+  - follower2:
+      layout: even-vertical
+      panes:
+        - sleep 15; roslaunch mission_planner mission_planner_follower.launch drone_id:=3 leader:=false
   - trajectory_follower:
       layout: even-vertical
       panes:
         - sleep 15; roslaunch trajectory_follower trajectory_follower.launch drone_id:=1
         - sleep 15; roslaunch trajectory_follower trajectory_follower.launch drone_id:=2
+        - sleep 15; roslaunch trajectory_follower trajectory_follower.launch drone_id:=3
   - rviz:
       layout: even-vertical
       panes:
@@ -26,7 +31,7 @@ windows:
   - python script:  
       layout: even-vertical
       panes:
-        - sleep 17; python experiments.py
+        - sleep 17; python ../experiments.py
   # - rosbag:
   #     layout: even-vertical
   #     panes:
